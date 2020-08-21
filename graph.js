@@ -84,6 +84,29 @@ class Graph {
         return resultsArray;
     }
 
+    bfsIter(start){
+        let queue = [start];
+        let resultsArray = [];
+        let visited = {[start]: true}
+
+        while (queue.length > 0) {
+            console.log(visited)
+            let v = queue.shift()
+            // visited[v] = true;
+            resultsArray.push(v)
+
+            this.adjacencyList[v].forEach((n) => {
+                if (!visited[n]) {
+                    visited[n] = true;
+                    queue.push(n)
+                }
+            })
+
+        }
+
+        return resultsArray
+
+    }
 
     //function declaration
         //
